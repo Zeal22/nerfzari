@@ -76,28 +76,23 @@ class NerfAssassin(Game):
 
 		assassin.kills.append(assassinated_handle)
 		assassinated.is_alive = False
-		assassinated.deaths += 1
-		assassinated.assassinator = assassin_handle
+                assassinated.deaths += 1 assassinated.assassinator =
+                assassin_handle
 
-		return True
-	# -------------------------------------------------------------------------
+                return True
+        # -------------------------------------------------------------------------
 
-	def add_participant(self, user: User):
-		"""
-		:param user: Name of the user to add
-		:param game_id: Unique id of the game to add the user to
-		:return: True if user has been successfully added to the game; otherwise False is returned.
-		"""
-		self.participants.append(user)
+        def add_participant(self, user: User): """ :param user: Name of the
+        user to add :param game_id: Unique id of the game to add the user to
+        :return: True if user has been successfully added to the game;
+        otherwise False is returned.  """ self.participants.append(user)
 
-		return True
-	# -------------------------------------------------------------------------
+                return True
+        # -------------------------------------------------------------------------
 
-	def get_participant(self, handle) -> User:
-		"""
-		:param handle: The handle of the participant to retrieve
-		:return: User object of the participant; otherwise None is returned
-		"""
+        def get_participant(self, handle) -> User: """ :param handle: The
+        handle of the participant to retrieve :return: User object of the
+        participant; otherwise None is returned """
 		participant: str
 
 		for user in self.participants[:]:

@@ -1,3 +1,4 @@
+import records
 from datetime import datetime
 from enum import Enum
 
@@ -80,53 +81,46 @@ def leaderboard(game_id: int):
 
 # -------------------------------------------------------------------------
 
-def register_kill(assassin_handle: str, assassinated_handle: str, game_id: int):
+def register_kill(UID: int, assassin_handle: str, assassinated_handle: str, game_id: int):
 	"""
+        :param UID: unique Identifier of user
 	:param assassin_handle: Handle of the assassin that performed the kill
 	:param assassinated_handle: Handle of the participant that was assassinated
 	:param game_id: Unique id of the game the assassination was performed under
 	:return: True if the kill was successfully registered; otherwise False is returned.
 	"""
 	game = database.get_game(game_id)      # TODO: This needs to be replaced with a real database call
-	return game.register_kill(assassin_handle,assassinated_handle)
+        return game.register_kill(assassin_handle,assassinated_handle)
 # -------------------------------------------------------------------------
 
-def add_participant(game_id: int, user: User):
-	"""
-	:param user: Name of the user to add
-	:param game_id: Unique id of the game to add the user to
-	:returns: True if user has been successfully added to the game; otherwise False is returned.
-	"""
+def add_participant(game_id: int, user: User): """ :param user: Name of the
+user to add :param game_id: Unique id of the game to add the user to :returns:
+True if user has been successfully added to the game; otherwise False is
+returned.  """
 
-	game = database.get_game(game_id)      # TODO: This needs to be replaced with a real database call
-	return game.add_participant(user)
+        game = database.get_game(game_id)      # TODO: This needs to be
+        replaced with a real database call return game.add_participant(user)
 # -------------------------------------------------------------------------
 
-def remove_participant(game_id: int, user: str):
-	"""
-	:param user: Name of the user to remove
-	:param game_id: Unique id of the game to remove the user from
-	:returns: True if user has been successfully removed from the game; otherwise False is returned.
-	"""
+def remove_participant(game_id: int, user: str): """ :param user: Name of the
+user to remove :param game_id: Unique id of the game to remove the user from
+:returns: True if user has been successfully removed from the game; otherwise
+False is returned.  """
 
-	game = database.get_game(game_id)      # TODO: This needs to be replaced with a real database call
-	return game.remove_participant(user)
+        game = database.get_game(game_id)      # TODO: This needs to be
+        replaced with a real database call return game.remove_participant(user)
 # -------------------------------------------------------------------------
 
-def status(game_id: int, user: str):
-	"""
-	:param user: Name of the user to print the status of
-	:param game_id: Unique id of the game the user is a participant in
-	:returns: True if status has been successfully retrieved and printed; otherwise False is returned.
-	"""
+def status(game_id: int, user: str): """ :param user: Name of the user to print
+the status of :param game_id: Unique id of the game the user is a participant
+in :returns: True if status has been successfully retrieved and printed;
+otherwise False is returned.  """
 
-	raise NotImplementedError()
+        raise NotImplementedError()
 # --------------------------------------------------------------------------
 
-def history():
-	"""
-	:returns: True if history has been successfully printed; otherwise False is returned.
-	"""
+def history(): """ :returns: True if history has been successfully printed;
+otherwise False is returned.  """
 
-	raise NotImplementedError()
+        raise NotImplementedError()
 # -------------------------------------------------------------------------
