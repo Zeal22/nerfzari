@@ -20,8 +20,8 @@ masterDB = [{1, 4320, "John", "Doe"}, {1, 4321, "John", "Doe2"},{1, 4322, "John"
 gamedb = [{1, 4320, "one", "two"}, {1, 4321, "two", "three"},{1, 4322, "three", "one"}]
 
 def add_game(object: 'Game') -> int:
-	games.append(object)
-	return len(games)-1
+    games.append(object)
+    return len(games)-1
 
 def get_game(game_id: int) -> 'Game':
-	return games[game_id]
+    return games[game_id]
