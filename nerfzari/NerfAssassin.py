@@ -82,12 +82,15 @@ class NerfAssassin(Game):
                 return True
         # -------------------------------------------------------------------------
 
-        def add_participant(self, user: User): """ :param user: Name of the
-        user to add :param game_id: Unique id of the game to add the user to
+        def add_participant(self, UID: int):
+        """
+        :param user: Name of the user to add
+        :param game_id: Unique id of the game to add the user to
         :return: True if user has been successfully added to the game;
-        otherwise False is returned.  """ self.participants.append(user)
-
-                return True
+        otherwise False is returned.
+        """
+            game_id = 1 # get current game ID from database
+            return super(NerfAssassin, self).add_participant(game_id, UID)
         # -------------------------------------------------------------------------
 
         def get_participant(self, handle) -> User: """ :param handle: The

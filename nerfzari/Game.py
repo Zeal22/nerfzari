@@ -93,13 +93,30 @@ def register_kill(UID: int, assassin_handle: str, assassinated_handle: str, game
         return game.register_kill(assassin_handle,assassinated_handle)
 # -------------------------------------------------------------------------
 
-def add_participant(game_id: int, user: User): """ :param user: Name of the
-user to add :param game_id: Unique id of the game to add the user to :returns:
-True if user has been successfully added to the game; otherwise False is
-returned.  """
+def add_participant(game_id: int, UID: int):
+    """ 
+    :param UID: Unique ID of the user to add
+    :param game_id: Unique id of the game to add the user to
+    :returns: True if user has been successfully added to the game;
+    otherwise False is returned.
+    """
+    # Check if game created
 
-        game = database.get_game(game_id)      # TODO: This needs to be
-        replaced with a real database call return game.add_participant(user)
+    game = database.get_game(game_id)
+    # If user not in game add, user ID obtain at login
+    for r in game:
+        if UID in r:
+            return True
+
+    # unique assassin ID per game
+    assassinID = ''.join(choice(alphabet) for i in range(5))
+
+    # Get game ID
+    gameID = 1
+
+    database.add_participant(UID, assassinID)
+    return True
+
 # -------------------------------------------------------------------------
 
 def remove_participant(game_id: int, user: str): """ :param user: Name of the

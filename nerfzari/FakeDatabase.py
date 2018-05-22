@@ -1,5 +1,6 @@
 from typing import List, Any
-
+import string
+alphabet = string.ascii_letters + string.digits
 
 # Temporary until records database completely set.
 # Master database
@@ -11,17 +12,26 @@ Game ID |    UID    |  F_name |  L_name |
 
 # per game database
 """
-Game ID |    UID    |  Assassin_ID | Target_ID |
---------|-----------|--------------|-----------|
+|    UID    |  Assassin_ID | Target_ID |
+|-----------|--------------|-----------|
 """
 
-masterDB = [{1, 4320, "John", "Doe"}, {1, 4321, "John", "Doe2"},{1, 4322, "John", "Doe3"}]
+masterRows = [{1, 4320, "John", "Doe"}, {1, 4321, "John", "Doe2"},{1, 4322, "John", "Doe3"}]
 
-gamedb = [{1, 4320, "one", "two"}, {1, 4321, "two", "three"},{1, 4322, "three", "one"}]
+gRows = [{1, 4320, "one", "two"}, {1, 4321, "two", "three"},{1, 4322, "three", "one"}]
 
-def add_game(object: 'Game') -> int:
-    games.append(object)
-    return len(games)-1
+# support for one game at a time to begin
 
-def get_game(game_id: int) -> 'Game':
-    return games[game_id]
+def create_game():
+    # Creates new database for
+    return True
+
+def get_game(gameID: int):
+    # master database to keep record of all game
+    return gRows
+
+def add_participant(UID: int, assassinID: str):
+    gRows.append({UID, assassinID, ""})
+
+
+
